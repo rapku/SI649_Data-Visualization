@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Birthday Problem</title>
+    <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="js/math.min.js" type="text/javascript"></script>
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+</head>
+
+<body>
+    <script type="text/javascript" src="js/play.js"></script>
+    <div id='text_explanation'>
+        <h1>The Birthday Problem</h1>
+        <h4>Raphael Ku, SI649 Fall 2018</h4>
+        <p class='content'>I'm pretty sure you've encountered this situation once or twice: You're with your friends in a restaurant, when suddenly, you see the staff bursting in song, and Happy Birthday to a table. You then watch as they go across the restaurant to do the same to another table or two. Have you ever wondered why there were so many people with the same birthday at the same time? Moreover, what are the odds of having a birthday in this very room, given the number of people here?</p>
+
+        <p class='content'>The visualization below allows you to generate a number of people at random, lighting up a cell for a specific month and day corresponding to their birthday. If the cell is red, it means that only 1 person has that birthday. If the cell is green, it means 2 or more people share a birthday. Feel free to guess what the chance of having at least 1 pair with the same birthday given the number of people you chose.  You can also try to guess how many people you need to have a X% probability to have at least 1 pair of people who have the same birthday.</p>
+    </div>
+    <div class="work_area">
+        <div class="vis">
+            <div class='cal_vis'>
+            </div>
+        </div>
+
+        <div class='input_area'>
+            <div id='field_gen'>
+                <label>How many people to generate</label>
+                <input type='number' min=1 step=1 value=1 id="numgen">
+            </div>
+
+            <div id='field_guess'>
+                <label>Guess likelihood of same birthday (in percent)</label>
+                <input type='number' min=0 max=100 value=50 id="numguess">
+            </div>
+            <br>
+
+            <div id='dist'>
+<!--             <input type='button' name='uniform' value='Uniform distribution' onclick="model_switcher('uniform')">
+            <input type='button' name='actual' value='U.S. Birth distribution (2000-2014)' onclick="model_switcher('real')"> -->
+                <div>Select the type of data you want to use to generate people</div>
+                <form>
+
+                    <input type='radio' name='model_select' onclick="model_switcher('uniform')" checked="checked" />Uniform distribution</input>
+                    <input type='radio' name='model_select' onclick="model_switcher('real')">U.S. Birth distribution (2000-2014)</input>
+                </form>
+            </div>
+            <br>
+
+            <div padding-top=100px> Number of trials to generate</div>
+            <div>(Wait until all trials finish before clicking again)</div>  
+            <div id='trials'>
+                <input type='button' name='1 Trial' value='1 trial' onclick="multi_trial(1, 10, 150)">
+                <input type='button' name='100 Trial' value='100 trials' onclick="multi_trial(100, 500, 80)">
+                <input type='button' name='500 Trial' value='500 trials' onclick="multi_trial(500, 50, 30)">
+                <input type='button' name='Reset' value='Reset' onclick="reset()">
+            </div>
+
+            <div class='line_vis'>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class='more_text'>
+        <p class='content'>What you encountered in the visualization is called the <strong>birthday paradox</strong>. Most people can guess that it takes 366 persons (367 on a leap year) to have a 100% chance to have at least 1 pair of people with a birthday. This can be explained through the pigeonhole principle, which states that if you have a number of containers and a number of items, and you have more items than containers, at least 1 container must have 2 or more items in it. Comparatively, it seems to be surprising that to get a 50% likelihood of having a pair of birthdays in the same room, you only need 23 people.</p>
+
+        <p class='content'>The birthday paradox can be explained through looking at combinatorics, or how many distinct combinations (for this case, pairs) you can make from a number of elements. In the birthday paradox, increasing the number of people in the room by one increases the number of combinations possible by a larger amount. For example, with 3 people, you can only make 3 distinct pairs of people, 4 people lets you make 6 distinct pairs, and 5 people lets you make 10 pairs. In the case of 23 people, you actually have 253 unique pairs of people to compare birthdays to, giving a good chance to find a pair of people with the same birthday.</p>
+
+        <p class='content'>Alternatively, you can solve the birthday paradox by looking at the chances of <i>not</i> having a pair of birthdays for each person in the room. To start with, with 5 people in the room:
+            <ul>
+                <li>The 1st person can have any birthday.</li>
+                <li>To not have a pair between them and the 1st person, they need a birthday from the remaining 364 days of the year.</li>
+                <li>The 3rd person needs to compare their birthday to the 2 people there, so there's only 363 days to choose from.</li>
+                <li>And so on for the remaining 2 people.</li>
+            </ul>
+        <p class='content'>Algorithmically, this is the chance of not having a pair of birthdays, represented as:</p>
+        <div>$$1(\frac{364}{365})(\frac{363}{365})(\frac{362}{365})(\frac{361}{365}) = 0.9729$$</div>
+        <p class='content'>To get the probability that there is at least 1 pair of birthdays, subtract this value from 1, getting a 2.71% to have people with the same birthdays in a group of 5. When applied to 23 people:</p>
+        <div>$$1 - 1(\frac{364}{365})(\frac{363}{365})(\frac{362}{365})(\frac{361}{365})\ldots(\frac{344}{365})(\frac{343}{365}) = 1 - 0.4927 = 0.5073 (50\%)$$</div>
+    </div>
+</body>
+</html>

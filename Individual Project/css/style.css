@@ -1,0 +1,57 @@
+body {
+  font: 10px sans-serif;
+  shape-rendering: crispEdges;
+}
+
+.day {
+  fill: #fff;
+  stroke: #ccc;
+}
+
+.month {
+  fill: none;
+  stroke: #000;
+  stroke-width: 2px;
+}
+
+label {
+	display: inline-block;
+}
+
+/* Style the lines by removing the fill and applying a stroke */
+.line {
+    fill: none;
+    stroke: #ffab00;
+    stroke-width: 2;
+}
+
+.vis, .input_area {
+	 display:inline-block;
+}
+
+.vis{
+	vertical-align: top;
+}
+
+.input_area{
+	padding-left: 3em
+}
+
+#numgen, #numguess{
+	width:50px;
+	font-size:12px;
+}
+
+div .input_area{
+	font-size:12px;
+}
+
+.content {
+	font-size:15px;
+	font-family: 'Futura';
+}
+
+li {
+	font-size:15px;
+	font-family: 'Futura';
+}

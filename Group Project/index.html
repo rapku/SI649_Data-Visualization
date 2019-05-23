@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Baseball Statistics Visualizations</title>
+    <link rel="stylesheet" href="css/skeleton.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script type="text/javascript" src="js/underscore.js"></script>
+    <script type="text/javascript" src="js/d3-annotation.js"></script>
+    <script type="text/javascript" src="js/draw.js"></script>
+
+    <div id="title">
+        <h1>Baseball Statistics Visualization</h1>
+        <h5>How the battle between pitcher and batter has changed over time</h5>
+    </div>
+
+    <div class="container">
+        <h1 class="panel"> Introduction </h1>
+            <div id="column1" style="background-color: #001f3f">
+              <br>
+                <p>At a glance, baseball can seem like an extremely complicated game with rules that are notoriously difficult to learn and understand for first-time viewers. But at the core of the game, baseball is a battle between pitcher and batter. Each at-bat is a faceoff between batters and pitchers: batters try to get on base, and pitchers try to get them out. This faceoff is the basis of all baseball games from its early history as a schoolyard game in New York during the early 19th century to the modern-day spectacles we see today like a battle between the Boston Red Sox and the Los Angeles Dodgers in the 2018 World Series. </p>
+                <p>Major League Baseball as we know it today is quite different than its humble beginnings. Rules and strategies had not yet fully been developed by teams, and seemingly brutish practices such as throwing a caught ball at a baserunner or spitting on the ball before delivering a pitch were still considered legal. However, over nearly 150 years of organized, professional baseball, the rules and customs of America's game have evolved and adapted into the game we know today.
+                </p>
+                <p>But behind all these rule changes is still the battle between hitter and pitcher. The mark of a good hitter is his ability to get onbase consistently and the mark of a good pitcher is being able to get batters out consistently. Pitchers tend to have a slight advantage over batters historically with the average OBP for all players in every year at-bat recorded in Lahman's Baseball Database is XXXXXXXXXXX However, the beauty of baseball is that it has changed so much over the last 150 years as the Major League Baseball has grown and adapted to new rules. And we can see how these changes have impacted the success of hitters and pitchers against one another.
+                </p>
+                <p>While there are countless changes to the way the game has been played, the rules behind the game, and the culture and practices of players within the game of baseball, we want to point out three main changes to the game of baseball and how they have impacted the duel between batter and pitcher. These three changes are:
+                </p>
+                <ul>
+                  <li>The physical makeup of the baseball</li>
+                  <li>The changing definition of the strike zone</li>
+                  <li>The widespread use and subsequent ban of steroids within baseball</li>
+
+                <p>These three changes to the game of baseball have had a tremendous impact on the battle between pitcher and batter and they are reflected statistically in the history of the game. We would like to spend some time to explain each of these changes in detail and show you how these changes impacted the success of pitchers or hitters against one another.
+                </p>
+                <br>
+
+            </div>
+
+        <h1 class="panel"> Factor 1: Physical Make of the Ball </h1>
+            <div id="column1" style="background-color: #003f5c">
+              <br>
+
+                <p>Major League Baseball has not always been the highly-funded and professionally made product that it is today. In the early 20th century, baseballs were made with solid rubber cores and the threads and strings that make up the stitching of the ball were hand wound by factory workers. This resulted in a so-called "soft" or "dead" ball that compared to modern baseballs did not travel as far when struck by the bat. In 1920, Major League Baseball decided to standardize the process used to make baseballs. They replaced the rubber core with a modern cork core wrapped in a thin layer of rubber. The factories that made baseballs also became more industrial and were able wind the threads by machines. These changes made the ball to be much more tightly wound and hard and also made the balls much more uniformly made. </p>
+                <p>With these new modifications to the ball, Major League Baseball entered the Live-Ball-Era and hitters were able to drive the ball much further than they had before. The result of these changes was a dramatic increase in the amount of homeruns hit and runs scored during baseball games. The changing of the ball led to a much more explosive offense and batters gaining an edge against pitchers that they never had not had in years past. As further proof of the impact of the physical makeup of the ball, we can look to the rubber shortage during WWII in the United States. Without crude rubber, baseball manufacturers were forced to replace the rubber wrappings in baseball with the less-bouncy balata which caused a dip in the batting power of hitters during the early 1940's.
+                </p>
+                <br>
+
+            </div>
+            <div class="chartPanel">
+              <p align = "left" class= "summary">Home runs per game is a measure of how many home runs each team in the league hits per game for a certain year. This is an offensive statistic that increases in years where the batter has an advantage over the pitcher.
+ </p>
+                <div class="chart" id="HR_G"></div>
+                <p align = "left" class= "summary">Average hits per at-bat (also known as batting average) is a measure of the rate at which a player gets on base for each time they face off against the pitcher. This is an offensive statistic that increases in years where the batter has an advantage over the pitcher.</p>
+                <div class="chart" id="H_AB"></div>
+            </div>
+
+        </div>
+
+        <h1 class="panel"> Factor 2: Changing the Strike Zone </h1>
+            <div id="column1" style="background-color: #2f4b7c">
+              <br>
+
+                <p>Traditionally in baseball, the strike zone (the area in which a pitcher needs to throw the ball in order for a strike to be called) is defined as an area over home plate extending from the armpits to the knees of a batter when in the batting position. Pitchers that have great control over their pitchers are more likely to be able to throw strikes when needed and therefore strike batters out. This relatively small area is very difficult to throw into consistently as the margin of error is razor-thin for pitchers. </p>
+                <p>However, this strike zone size was changed for a brief period of time in the 1960's and the result were years of dominating pitching which have yet to be seen again in baseball. After years of scoring increases and more and more homeruns being hit, MLB team owners elected to change the definition of the strike zone from the standard armpits to knees, to an enlarged area of top of the batter's shoulder to the bottom of the batters knees. Pitchers were now able to make more mistakes in their pitches while still throwing strikes, and pitchers will great control were able to aim pitches much more effectively. The result of these changes were immediately evident with instant changes to statistics relating pitchers. The number of walks that teams threw per game plummeted compared to years past while the number of strikeouts that teams threw increased dramatically. Overall scoring decreased dramatically; these changes culminated in 1968, also known as "The Year of the Pitcher", in which dominating pitchers like Bob Gibson and Denny McLain overwhelmed hitters while on the mound. The league saw the lowest numbers for batting average and runs scored in decades, and fans starting to become disinterested in the game. Owners quickly elected to change back to the old strike zone, and statistics began to normalize to historical averages once again.
+                </p>
+                <br>
+
+            </div>
+            <div class="chartPanel">
+              <p align = "left" class= "summary">Walks per game is a measure of how many walks (also known as base-on-balls or BB) a pitching team gives up per game. This is a pitching statistic that decreases in years where pitcher has a advantage against the batter.</p>
+
+                <div class="chart" id="W_G"></div>
+                <p align = "left" class= "summary">Strikeouts per game is a measure of how many strikeouts (also known as K) a pitching team throws per game. This is a pitching statistic that increases in years where the pitcher has an advantage over the batter. </p>
+                <div class="chart" id="SO_G"></div>
+            </div>
+        </div>
+
+        <h1 class="panel"> Factor 3: Use of Steroids </h1>
+            <div id="column1" style="background-color: #665191">
+              <br>
+
+                <p>While the first two changes we discussed were made by Major League Baseball owners and league officials to change the way the game was played, player habits have a huge impact on the status of the game. And no player habit was more noticeable to the game of baseball than the use of anabolic steroids by players in the late 20th century. Starting in the 1980's, Major League Baseball players took advantage of a huge pharmaceutical boom in the United States and performance enhancing drugs became easy to find and use for players in MLB locker rooms. Pitchers and batters alike were able to access and use anabolic steroids and used these drugs to increase their strength and elongate their careers in baseball. Because players could throw the ball harder and hit the ball harder, offensive statistics rapidly increased during the late 1980's and 1990's. Home runs became much more common in the average baseball game. The single-season home run record for one player would be broken 6 different times from 1998 to 2001. Teams were scoring more runs than ever before, and it Major League Baseball was forced to intervene for the safety of its players and the sanctity of the game.
+                </p>
+                <p>By enforcing randomized drug testing and imposing more severe suspensions and penalties for players caught using performance-enhancing-drugs, Major League Baseball dramatically reduced the number of steroid abusers in baseball. Steroids have become much less common in the modern game, and offensive statistics have regressed back to historical averages since then.
+                </p>
+                <br>
+
+            </div>
+            <div class="chartPanel">
+              <p align = "left" class= "summary">Home runs per game is a measure of how many home runs each team in the league hits per game for a certain year. This is an offensive statistic that increases in years where the batter has an advantage over the pitcher.</p>
+                <div class="chart" id="HR_G_STEROIDS"></div>
+                <p align = "left" class= "summary">Runs per game is a measure of how many runs a team scores per game for a certain year. This is an offensive statistic that increases in years where the batter has an advantage over the pitcher.</p>
+                  <div class="chart" id="R_G_STEROIDS"></div>
+            </div>
+        </div>
+
+        <h1 class="panel"> Conclusion </h1>
+        <div id="column1" style="background-color: #a05195">
+          <br>
+
+            <p>Major League Baseball has changed dramatically over time, and while the basis of the game is still the competition between batter and pitcher, how these battles turn out can be influenced by the current climate of the game. While there are many different factors that affect the sport and can give an advantage to the batter or pitcher, we feel that the three factors that we have identified above have had the biggest impact on the competition between hitters and batters. We've created the visualization below to explain how the yearly averages for some of the statistics we've discussed vary compared to the historical average. On the variance graph, you can use the slider to select the years to that will make up the average value. Years above the average line saw a higher than average value for that year in that statistic and years below the average line saw a lower than average value for that year. </p>
+            <p>Feel free to explore different statistics and different time periods for calculating the league average. What is surprising to you? What time periods seem to have an advantage for batters? How about pitchers? What other statistics seem to change over time or during the time periods we mentioned?
+            </p>
+            <br>
+
+        </div>
+        <br>
+
+        <!-- <h1 class="panel"> Let's Explore... </h1> -->
+
+        <div id="buttonClass">
+            <div class="button current" id='H_AB' data-val="0">Hits per at Bats</div>
+            <div class="button" id="HR_G" data-val="1">Home Runs per Game</div>
+            <div class="button" id="R_G" data-val="2">Runs per Game</div>
+            <div class="button" id="W_G" data-val="3">Walks per Game</div>
+            <div class="button" id="SO_G" data-val="4">Strike-outs per Game</div>
+            <div class="button" id="OBP" data-val="5">On-base Percentage</div>
+        </div>
+        <div id="year_selector">
+            <input type='number' min=1887 max=2017 step=1 value=1871 id="yearA" required>
+            <input type='number' min=1887 max=2017 step=1 value=2017 id="yearB" required>
+        </div>
+        <br>
+        <div id="event_selector">
+            <div class="button" id='Change1' data-val="0">Dead ball to Live ball (1920 onwards)</div>
+            <div class="button" id="Change2" data-val="1">Rubber Shortage (1941-1945)</div>
+            <div class="button" id="Strike" data-val="2">Change in Strike Zone (1963-1968)</div>
+            <div class="button" id="Roids" data-val="3">Steroids (1985-2002)</div>
+        </div>
+        <br>
+    <p></p>
+        <div class="chartPanel">
+            <div class="chart" id="interactive"></div>
+            <div class ="chart" id="variance"></div>
+        </div>
+        <!-- <div id="column1" style="background-color: #001f3f">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        </div> -->
+
+    </div>
+</body>
+</html>
